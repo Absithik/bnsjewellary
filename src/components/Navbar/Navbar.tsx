@@ -91,28 +91,6 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Toggle Tabs */}
-      <div className="flex justify-center pb-4">
-        <div className="inline-flex bg-pure-white border border-rose-gold/30 rounded-full p-1 w-full max-w-md mx-4 overflow-hidden">
-          <button 
-            onClick={() => setActiveTab('silver')}
-            className={`flex-1 py-2 px-6 rounded-full text-xs font-bold uppercase tracking-widest transition-all duration-300 ${
-              activeTab === 'silver' ? 'bg-[#8B2E40] text-pure-white' : 'text-royal-black/60'
-            }`}
-          >
-            Silver Jewellery
-          </button>
-          <button 
-            onClick={() => setActiveTab('gold')}
-            className={`flex-1 py-2 px-6 rounded-full text-xs font-bold uppercase tracking-widest transition-all duration-300 ${
-              activeTab === 'gold' ? 'bg-pure-white text-royal-black/60' : 'text-royal-black/60'
-            }`}
-          >
-            Gold Jewellery
-          </button>
-        </div>
-      </div>
-
       {/* Mobile Menu */}
       <AnimatePresence>
         {isMobileMenuOpen && (

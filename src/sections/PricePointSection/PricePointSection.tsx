@@ -1,34 +1,29 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 const pricePoints = [
-  { label: 'Under', price: '₹1299' },
-  { label: 'Under', price: '₹1499' },
-  { label: 'Under', price: '₹1999' },
+  { label: 'Under', price: '₹999', link: '/shop?price=under-999' },
+  { label: 'Under', price: '₹1499', link: '/shop?price=under-1499' },
+  { label: 'Under', price: '₹1999', link: '/shop?price=under-1999' },
+  { label: 'Under', price: '₹2999', link: '/shop?price=under-2999' },
 ];
 
 const PricePointSection = () => {
   return (
-    <section className="py-24 bg-pure-white overflow-hidden">
-      <div className="w-full px-4 md:px-12">
-        <h2 className="text-4xl font-serif text-center mb-16">Luxury within Reach</h2>
+    <section className="py-12 bg-white">
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 className="text-2xl md:text-3xl font-sans text-center text-gray-900 mb-8">Shop by Price</h2>
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
           {pricePoints.map((item, index) => (
-            <motion.div 
+            <Link 
               key={index}
-              whileHover={{ y: -15, scale: 1.02 }}
-              className="relative h-[350px] md:h-[450px] rounded-[4rem] overflow-hidden bg-gradient-to-b from-[#4A0E0E] to-[#2D0A11] flex flex-col items-center justify-center text-pure-white space-y-4 shadow-2xl group"
+              to={item.link}
+              className="group flex flex-col items-center justify-center py-8 px-4 bg-[#F9F9F9] rounded-2xl hover:bg-[#FCE4EC] transition-colors duration-300"
             >
-              <span className="text-4xl font-light tracking-[0.3em] opacity-80 group-hover:opacity-100 transition-opacity">{item.label}</span>
-              <span className="text-7xl md:text-8xl font-bold tracking-tighter group-hover:scale-110 transition-transform duration-500">{item.price}</span>
-              
-              {/* Decorative Shine */}
-              <div className="absolute inset-0 bg-gradient-to-tr from-pure-white/0 via-pure-white/10 to-pure-white/0 pointer-events-none group-hover:via-pure-white/20 transition-all duration-700"></div>
-              
-              {/* Subtle Glow */}
-              <div className="absolute -bottom-20 -left-20 w-64 h-64 bg-rose-gold/10 rounded-full blur-[80px] pointer-events-none"></div>
-            </motion.div>
+              <span className="text-sm text-gray-500 mb-1 group-hover:text-[#D15C7A] transition-colors">{item.label}</span>
+              <span className="text-2xl font-bold text-gray-900 group-hover:text-[#8B2E40] transition-colors">{item.price}</span>
+            </Link>
           ))}
         </div>
       </div>

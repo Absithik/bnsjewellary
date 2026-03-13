@@ -5,8 +5,10 @@ import CategorySlider from '../../sections/CategorySlider/CategorySlider';
 import TrustBadges from '../../sections/TrustBadges/TrustBadges';
 import RecipientSection from '../../sections/RecipientSection/RecipientSection';
 import ShopByColour from '../../sections/ShopByColour/ShopByColour';
+import ShopByBond from '../../sections/ShopByBond/ShopByBond';
 import PricePointSection from '../../sections/PricePointSection/PricePointSection';
 import Categories from '../../sections/Categories/Categories';
+import FirstAccessBanner from '../../sections/FirstAccessBanner/FirstAccessBanner';
 import BestSellers from '../../sections/BestSellers/BestSellers';
 import Collections from '../../sections/Collections/Collections';
 import WhyChooseUs from '../../sections/WhyChooseUs/WhyChooseUs';
@@ -25,10 +27,12 @@ const Home = () => {
      
       <CategorySlider />
       <TrustBadges />
+      <ShopByBond />
       <ShopByColour />
       <PricePointSection />
        <NewLaunch />
-      <Categories />
+      // <Categories />
+      <FirstAccessBanner />
       <BestSellers />
       <Collections />
       <WhyChooseUs />
