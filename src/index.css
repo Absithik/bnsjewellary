@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Cormorant Garamond", serif;
+  --font-sans: "Inter", sans-serif;
+
+  --color-luxury-silver: #C0C0C0;
+  --color-rose-gold: #E6B7A9;
+  --color-royal-black: #111111;
+  --color-soft-beige: #F8F5F2;
+  --color-pure-white: #FFFFFF;
+
+  --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.05);
+  --shadow-premium: 0 10px 40px rgba(0, 0, 0, 0.08);
+}
+
+@layer base {
+  body {
+    @apply font-sans text-royal-black bg-pure-white antialiased;
+    scroll-behavior: smooth;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif tracking-wide;
+  }
+}
+
+@layer components {
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .btn-premium {
+    @apply inline-flex items-center justify-center px-8 py-3 border border-royal-black text-xs uppercase tracking-[0.2em] font-medium transition-all duration-300 hover:bg-royal-black hover:text-pure-white;
+  }
+
+  .btn-rose {
+    @apply inline-flex items-center justify-center px-8 py-3 bg-rose-gold text-pure-white text-xs uppercase tracking-[0.2em] font-medium transition-all duration-300 hover:opacity-90;
+  }
+
+  .luxury-card {
+    @apply bg-pure-white transition-all duration-500 hover:shadow-premium;
+  }
+
+  .nav-link {
+    @apply text-xs uppercase tracking-[0.15em] font-medium text-royal-black/70 hover:text-royal-black transition-colors duration-300;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: #fdfdfd;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #E6B7A9;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #C0C0C0;
+}
