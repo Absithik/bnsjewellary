@@ -3,11 +3,9 @@ import HomeHero from '../../sections/HomeHero/HomeHero';
 import NewLaunch from '../../sections/NewLaunch/NewLaunch';
 import CategorySlider from '../../sections/CategorySlider/CategorySlider';
 import TrustBadges from '../../sections/TrustBadges/TrustBadges';
-import RecipientSection from '../../sections/RecipientSection/RecipientSection';
 import ShopByColour from '../../sections/ShopByColour/ShopByColour';
 import ShopByBond from '../../sections/ShopByBond/ShopByBond';
 import PricePointSection from '../../sections/PricePointSection/PricePointSection';
-import Categories from '../../sections/Categories/Categories';
 import FirstAccessBanner from '../../sections/FirstAccessBanner/FirstAccessBanner';
 import BestSellers from '../../sections/BestSellers/BestSellers';
 import Collections from '../../sections/Collections/Collections';
@@ -31,7 +29,6 @@ const Home = () => {
       <ShopByColour />
       <PricePointSection />
        <NewLaunch />
-      // <Categories />
       <FirstAccessBanner />
       <BestSellers />
       <Collections />

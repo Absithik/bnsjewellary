@@ -6,7 +6,7 @@ const slides = [
   {
     id: 0,
     title: "Elegance Redefined",
-    subtitle: "Discover the new silver collection.",
+    subtitle: "Discover the new gold collection.",
     image: "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&q=80&w=2000",
   },
   {
@@ -35,7 +35,7 @@ const HomeHero = () => {
   }, []);
 
   return (
-    <section className="relative h-[85vh] min-h-[600px] w-full overflow-hidden bg-royal-black">
+    <section className="relative h-[85vh] min-h-[600px] w-full overflow-hidden bg-gradient-to-br from-soft-pink to-peach">
       <AnimatePresence initial={false}>
         <motion.div
           key={currentSlide}
@@ -45,11 +45,13 @@ const HomeHero = () => {
           transition={{ duration: 1.5, ease: "easeInOut" }}
           className="absolute inset-0"
         >
-          <div className="absolute inset-0 bg-black/40 z-10" /> {/* Dark overlay for text readability */}
+          {/* Bright luxury gradient overlay with soft glow */}
+          <div className="absolute inset-0 bg-gradient-to-b from-soft-pink/40 via-cream-white/20 to-champagne/60 z-10" /> 
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.4)_0%,transparent_60%)] z-10 pointer-events-none" />
           <img
             src={slides[currentSlide].image}
             alt={slides[currentSlide].title}
-            className="w-full h-full object-cover object-center"
+            className="w-full h-full object-cover object-center mix-blend-overlay opacity-90"
             referrerPolicy="no-referrer"
           />
         </motion.div>
@@ -65,19 +67,19 @@ const HomeHero = () => {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="max-w-3xl mx-auto space-y-6"
           >
-            <span className="text-xs md:text-sm uppercase tracking-[0.3em] text-pure-white/80 font-bold">
+            <span className="text-xs md:text-sm uppercase tracking-[0.3em] text-deep-black font-medium">
               Aurelia Exclusive
             </span>
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif text-pure-white leading-tight drop-shadow-lg">
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif text-deep-black leading-tight drop-shadow-sm">
               {slides[currentSlide].title}
             </h1>
-            <p className="text-lg md:text-2xl text-pure-white/90 font-light drop-shadow-md">
+            <p className="text-lg md:text-2xl text-deep-black/80 font-light drop-shadow-sm">
               {slides[currentSlide].subtitle}
             </p>
             <div className="pt-8">
               <Link 
                 to="/shop" 
-                className="inline-block bg-pure-white text-royal-black px-12 py-4 text-sm font-bold uppercase tracking-[0.2em] hover:bg-rose-gold hover:text-pure-white transition-colors duration-300"
+                className="btn-premium"
               >
                 Explore Collection
               </Link>
@@ -98,8 +100,8 @@ const HomeHero = () => {
             aria-label={`Go to slide ${idx + 1}`}
           >
             <span 
-              className={`absolute h-[2px] bg-pure-white transition-all duration-500 ${
-                currentSlide === idx ? 'w-10 opacity-100' : 'w-4 opacity-50 hover:opacity-100'
+              className={`absolute h-[2px] transition-all duration-500 ${
+                currentSlide === idx ? 'w-10 bg-luxury-gold shadow-gold-glow opacity-100' : 'w-4 bg-deep-black/30 hover:bg-luxury-gold hover:opacity-100'
               }`} 
             />
           </button>

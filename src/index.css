@@ -5,24 +5,33 @@
   --font-serif: "Cormorant Garamond", serif;
   --font-sans: "Inter", sans-serif;
 
-  --color-luxury-silver: #C0C0C0;
-  --color-rose-gold: #E6B7A9;
-  --color-royal-black: #111111;
+  --color-luxury-gold: #D4AF37;
+  --color-cream-white: #FFF9F2;
+  --color-rose-gold: #E8B4A0;
+  --color-soft-pink: #FDE6E8;
+  --color-mint: #DFF5F2;
+  --color-peach: #FFDAB9;
+  --color-champagne: #F7E7CE;
+  --color-light-beige: #F5F5DC;
+  
+  --color-deep-black: #1A1A1A;
   --color-soft-beige: #F8F5F2;
   --color-pure-white: #FFFFFF;
 
   --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.05);
-  --shadow-premium: 0 10px 40px rgba(0, 0, 0, 0.08);
+  --shadow-premium: 0 10px 40px rgba(212, 175, 55, 0.15);
+  --shadow-gold-glow: 0 0 30px rgba(212, 175, 55, 0.3);
+  --shadow-pastel: 0 10px 30px rgba(232, 180, 160, 0.2);
 }
 
 @layer base {
   body {
-    @apply font-sans text-royal-black bg-pure-white antialiased;
+    @apply font-sans text-deep-black bg-cream-white antialiased;
     scroll-behavior: smooth;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-serif tracking-wide;
+    @apply font-serif tracking-wide text-deep-black;
   }
 }
 
@@ -32,19 +41,32 @@
   }
 
   .btn-premium {
-    @apply inline-flex items-center justify-center px-8 py-3 border border-royal-black text-xs uppercase tracking-[0.2em] font-medium transition-all duration-300 hover:bg-royal-black hover:text-pure-white;
+    @apply inline-flex items-center justify-center px-8 py-3 bg-gradient-to-r from-luxury-gold to-rose-gold text-pure-white text-xs uppercase tracking-[0.2em] font-medium transition-all duration-300 hover:shadow-gold-glow hover:scale-105 rounded-full border-none;
   }
 
   .btn-rose {
-    @apply inline-flex items-center justify-center px-8 py-3 bg-rose-gold text-pure-white text-xs uppercase tracking-[0.2em] font-medium transition-all duration-300 hover:opacity-90;
+    @apply inline-flex items-center justify-center px-8 py-3 bg-rose-gold text-pure-white text-xs uppercase tracking-[0.2em] font-medium transition-all duration-300 hover:opacity-90 hover:shadow-pastel rounded-full;
   }
 
   .luxury-card {
-    @apply bg-pure-white transition-all duration-500 hover:shadow-premium;
+    @apply bg-pure-white/80 backdrop-blur-md border border-luxury-gold/20 transition-all duration-500 hover:shadow-premium hover:border-luxury-gold/50 rounded-2xl;
   }
 
   .nav-link {
-    @apply text-xs uppercase tracking-[0.15em] font-medium text-royal-black/70 hover:text-royal-black transition-colors duration-300;
+    @apply text-xs uppercase tracking-[0.15em] font-medium text-deep-black/70 hover:text-luxury-gold transition-colors duration-300;
+  }
+
+  .bg-luxury-gradient {
+    @apply bg-gradient-to-br from-soft-pink via-cream-white to-champagne;
+  }
+  
+  .bg-gold-glow {
+    @apply relative overflow-hidden;
+  }
+  
+  .bg-gold-glow::before {
+    content: '';
+    @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-luxury-gold/10 rounded-full blur-[120px] pointer-events-none;
   }
 }
 
@@ -67,14 +89,14 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #fdfdfd;
+  background: #FFF9F2;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #E6B7A9;
+  background: #E8B4A0;
   border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #C0C0C0;
+  background: #D4AF37;
 }

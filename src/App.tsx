@@ -15,6 +15,7 @@ import Collections from './pages/Collections/Collections';
 import Cart from './pages/Cart/Cart';
 import About from './pages/About/About';
 import Contact from './pages/Contact/Contact';
+import Checkout from './pages/Checkout/Checkout';
 
 // Scroll to top on route change
 const ScrollToTop = () => {
@@ -41,6 +42,7 @@ function App() {
               <Route path="/product/:id" element={<ProductDetails />} />
               <Route path="/collections" element={<Collections />} />
               <Route path="/cart" element={<Cart />} />
+              <Route path="/checkout" element={<Checkout />} />
               <Route path="/about" element={<About />} />
               <Route path="/contact" element={<Contact />} />
               {/* Fallback */}

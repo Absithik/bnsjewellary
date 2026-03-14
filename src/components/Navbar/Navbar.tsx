@@ -27,64 +27,64 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className={`fixed w-full z-50 transition-all duration-300 bg-pure-white ${isScrolled ? 'shadow-soft' : ''}`}>
+    <nav className={`fixed w-full z-50 transition-all duration-500 ${isScrolled ? 'bg-cream-white/95 backdrop-blur-md shadow-pastel border-b border-rose-gold/20' : 'bg-transparent border-b border-deep-black/10'}`}>
       {/* Top Header */}
       <div className="container-custom py-4 flex items-center justify-between gap-8">
-        <Link to="/" className="text-3xl font-bold tracking-tighter shrink-0">
+        <Link to="/" className="text-3xl font-serif font-bold tracking-[0.2em] text-deep-black shrink-0 drop-shadow-sm">
           AURELIA
         </Link>
 
         {/* Location Selector */}
-        <div className="hidden md:flex items-center space-x-2 px-3 py-1 border border-royal-black/10 rounded-sm shrink-0 cursor-pointer hover:bg-soft-beige transition-colors">
-          <div className="text-rose-gold"><MapPin size={16} /></div>
-          <div className="text-[10px] leading-tight">
-            <p className="font-bold">Where to Deliver?</p>
-            <p className="text-royal-black/60 flex items-center">Update Delivery Pincode <ChevronDown size={10} className="ml-1" /></p>
+        <div className="hidden md:flex items-center space-x-2 px-3 py-1 border border-deep-black/20 rounded-sm shrink-0 cursor-pointer hover:bg-rose-gold/10 transition-colors">
+          <div className="text-luxury-gold"><MapPin size={16} /></div>
+          <div className="text-[10px] leading-tight text-deep-black">
+            <p className="font-bold tracking-wider">Where to Deliver?</p>
+            <p className="text-deep-black/60 flex items-center">Update Delivery Pincode <ChevronDown size={10} className="ml-1" /></p>
           </div>
         </div>
 
         {/* Search Bar */}
-        <div className="flex-grow max-w-2xl relative hidden md:block">
+        <div className="flex-grow max-w-2xl relative hidden md:block group">
           <input 
             type="text" 
             placeholder="Search 'Gifts For Her'"
-            className="w-full bg-soft-beige/30 border border-royal-black/10 rounded-sm py-2 px-4 pr-10 text-sm focus:outline-none focus:border-rose-gold transition-colors"
+            className="w-full bg-pure-white border border-rose-gold/30 rounded-full py-2.5 px-6 pr-12 text-sm text-deep-black focus:outline-none focus:border-rose-gold focus:bg-pure-white transition-all duration-300 placeholder-deep-black/40 shadow-sm"
           />
-          <Search className="absolute right-3 top-1/2 -translate-y-1/2 text-royal-black/40" size={18} />
+          <Search className="absolute right-4 top-1/2 -translate-y-1/2 text-deep-black/40 group-focus-within:text-luxury-gold transition-colors" size={18} />
         </div>
 
         {/* Icons */}
         <div className="flex items-center space-x-6 shrink-0">
           <div className="hidden lg:flex flex-col items-center cursor-pointer group">
-            <Store size={20} strokeWidth={1.5} className="group-hover:text-rose-gold transition-colors" />
-            <span className="text-[9px] uppercase tracking-widest mt-1 font-bold text-royal-black/60">Stores</span>
+            <Store size={20} strokeWidth={1.5} className="text-deep-black group-hover:text-luxury-gold transition-colors duration-300" />
+            <span className="text-[9px] uppercase tracking-widest mt-1 font-bold text-deep-black/60 group-hover:text-luxury-gold/80 transition-colors">Stores</span>
           </div>
           <Link to="/account" className="flex flex-col items-center group">
-            <User size={20} strokeWidth={1.5} className="group-hover:text-rose-gold transition-colors" />
-            <span className="text-[9px] uppercase tracking-widest mt-1 font-bold text-royal-black/60">Account</span>
+            <User size={20} strokeWidth={1.5} className="text-deep-black group-hover:text-luxury-gold transition-colors duration-300" />
+            <span className="text-[9px] uppercase tracking-widest mt-1 font-bold text-deep-black/60 group-hover:text-luxury-gold/80 transition-colors">Account</span>
           </Link>
           <Link to="/wishlist" className="flex flex-col items-center group">
-            <Heart size={20} strokeWidth={1.5} className="group-hover:text-rose-gold transition-colors" />
-            <span className="text-[9px] uppercase tracking-widest mt-1 font-bold text-royal-black/60">Wishlist</span>
+            <Heart size={20} strokeWidth={1.5} className="text-deep-black group-hover:text-luxury-gold transition-colors duration-300" />
+            <span className="text-[9px] uppercase tracking-widest mt-1 font-bold text-deep-black/60 group-hover:text-luxury-gold/80 transition-colors">Wishlist</span>
           </Link>
           <Link to="/cart" className="flex flex-col items-center group relative">
-            <ShoppingBag size={20} strokeWidth={1.5} className="group-hover:text-rose-gold transition-colors" />
-            <span className="text-[9px] uppercase tracking-widest mt-1 font-bold text-royal-black/60">Cart</span>
-            <span className="absolute -top-1 right-0 bg-rose-gold text-pure-white text-[8px] w-4 h-4 flex items-center justify-center rounded-full border-2 border-pure-white">
+            <ShoppingBag size={20} strokeWidth={1.5} className="text-deep-black group-hover:text-luxury-gold transition-colors duration-300" />
+            <span className="text-[9px] uppercase tracking-widest mt-1 font-bold text-deep-black/60 group-hover:text-luxury-gold/80 transition-colors">Cart</span>
+            <span className="absolute -top-1 right-0 bg-rose-gold text-pure-white text-[8px] font-bold w-4 h-4 flex items-center justify-center rounded-full border border-pure-white shadow-sm">
               1
             </span>
           </Link>
-          <button className="md:hidden" onClick={() => setIsMobileMenuOpen(true)}>
+          <button className="md:hidden text-deep-black" onClick={() => setIsMobileMenuOpen(true)}>
             <Menu size={24} strokeWidth={1.5} />
           </button>
         </div>
       </div>
 
       {/* Secondary Nav */}
-      <div className="border-t border-royal-black/5 hidden md:block">
+      <div className="border-t border-rose-gold/10 hidden md:block bg-cream-white/80 backdrop-blur-sm">
         <div className="container-custom py-3 flex items-center justify-center space-x-8">
           {mainNavLinks.map((link) => (
-            <Link key={link.name} to={link.path} className="text-[11px] font-medium text-royal-black/80 hover:text-rose-gold transition-colors flex items-center">
+            <Link key={link.name} to={link.path} className="text-[11px] font-medium text-deep-black/80 hover:text-luxury-gold transition-colors flex items-center uppercase tracking-widest">
               {link.name} <ChevronDown size={10} className="ml-1 opacity-50" />
             </Link>
           ))}
@@ -99,11 +99,11 @@ const Navbar = () => {
             animate={{ x: 0 }}
             exit={{ x: '100%' }}
             transition={{ type: 'tween', duration: 0.4 }}
-            className="fixed inset-0 bg-pure-white z-[60] flex flex-col p-8"
+            className="fixed inset-0 bg-cream-white z-[60] flex flex-col p-8 border-l border-rose-gold/20 shadow-[-10px_0_30px_rgba(232,180,160,0.2)]"
           >
             <div className="flex justify-between items-center mb-12">
-              <span className="text-xl font-serif tracking-widest font-bold">AURELIA</span>
-              <button onClick={() => setIsMobileMenuOpen(false)}>
+              <span className="text-xl font-serif tracking-[0.2em] font-bold text-deep-black">AURELIA</span>
+              <button onClick={() => setIsMobileMenuOpen(false)} className="text-deep-black hover:text-luxury-gold transition-colors">
                 <X size={24} strokeWidth={1.5} />
               </button>
             </div>
@@ -112,7 +112,7 @@ const Navbar = () => {
                 <Link 
                   key={link.name} 
                   to={link.path} 
-                  className="text-lg font-serif tracking-widest border-b border-royal-black/5 pb-2"
+                  className="text-lg font-serif tracking-widest border-b border-rose-gold/10 pb-4 text-deep-black hover:text-luxury-gold transition-colors"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {link.name}

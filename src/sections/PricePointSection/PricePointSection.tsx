@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
 const pricePoints = [
   { label: 'Under', price: '₹999', link: '/shop?price=under-999' },
@@ -10,21 +11,32 @@ const pricePoints = [
 
 const PricePointSection = () => {
   return (
-    <section className="py-12 bg-white">
-      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-2xl md:text-3xl font-sans text-center text-gray-900 mb-8">Shop by Price</h2>
-        
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
-          {pricePoints.map((item, index) => (
-            <Link 
-              key={index}
-              to={item.link}
-              className="group flex flex-col items-center justify-center py-8 px-4 bg-[#F9F9F9] rounded-2xl hover:bg-[#FCE4EC] transition-colors duration-300"
-            >
-              <span className="text-sm text-gray-500 mb-1 group-hover:text-[#D15C7A] transition-colors">{item.label}</span>
-              <span className="text-2xl font-bold text-gray-900 group-hover:text-[#8B2E40] transition-colors">{item.price}</span>
-            </Link>
-          ))}
+    <section className="py-8 bg-cream-white relative overflow-hidden border-y border-rose-gold/10">
+      <div className="container-custom relative z-10">
+        <div className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-12">
+          <div className="text-center md:text-right shrink-0">
+            <h2 className="text-lg font-serif text-deep-black tracking-wide">Shop by Price</h2>
+          </div>
+          
+          <div className="flex flex-wrap justify-center gap-3 md:gap-4">
+            {pricePoints.map((item, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: index * 0.05 }}
+              >
+                <Link 
+                  to={item.link}
+                  className="group flex items-center space-x-2 py-2 px-5 bg-pure-white/80 backdrop-blur-md border border-rose-gold/20 rounded-full hover:bg-rose-gold/5 hover:border-rose-gold/50 transition-all duration-300 hover:shadow-pastel"
+                >
+                  <span className="text-[10px] text-deep-black/50 uppercase tracking-widest font-medium group-hover:text-rose-gold/80 transition-colors">{item.label}</span>
+                  <span className="text-sm font-sans font-semibold text-deep-black group-hover:text-rose-gold transition-colors">{item.price}</span>
+                </Link>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

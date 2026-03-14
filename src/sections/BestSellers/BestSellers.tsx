@@ -15,32 +15,43 @@ const BestSellers = () => {
   }
 
   return (
-    <section className="py-16 bg-[#FCF9F9] overflow-hidden">
-      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col items-center text-center mb-10">
-          <h2 className="text-3xl md:text-4xl font-sans text-gray-900 mb-2">Bestsellers</h2>
+    <section className="py-20 bg-gradient-to-b from-cream-white to-champagne relative overflow-hidden border-t border-rose-gold/20">
+      {/* Decorative background elements */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-rose-gold/10 rounded-full blur-[120px] pointer-events-none" />
+
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="flex flex-col items-center text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-serif text-deep-black mb-4">Featured Excellence</h2>
+          <p className="text-deep-black/60 font-sans max-w-2xl mx-auto">Our most coveted pieces, beloved by connoisseurs of fine jewelry.</p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
-          {bestSellers.map((product) => (
-            <BestsellerCard 
-              key={product.id} 
-              product={{
-                ...product,
-                isBestSeller: true, // Force true for this section to match screenshot
-                originalPrice: Math.floor(product.price * 1.5),
-                reviews: Math.floor(Math.random() * 500) + 100
-              }} 
-            />
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+          {bestSellers.map((product, idx) => (
+            <motion.div
+              key={product.id}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: idx * 0.1 }}
+            >
+              <BestsellerCard 
+                product={{
+                  ...product,
+                  isBestSeller: true, // Force true for this section to match screenshot
+                  originalPrice: Math.floor(product.price * 1.5),
+                  reviews: Math.floor(Math.random() * 500) + 100
+                }} 
+              />
+            </motion.div>
           ))}
         </div>
 
         <div className="flex justify-center">
           <Link 
             to="/best-sellers" 
-            className="px-8 py-2 border border-gray-400 rounded text-sm font-medium text-gray-800 hover:bg-gray-50 transition-colors duration-300 bg-white"
+            className="btn-premium"
           >
-            View More
+            View All Bestsellers
           </Link>
         </div>
       </div>

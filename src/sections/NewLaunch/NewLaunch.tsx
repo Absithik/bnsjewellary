@@ -16,35 +16,39 @@ const newItems = [
 
 const NewLaunch = () => {
   return (
-    <section className="py-16 bg-[#FDF2F0] overflow-hidden">
-      <div className="w-full px-4 md:px-12">
+    <section className="py-16 bg-gradient-to-b from-cream-white to-soft-pink/20 overflow-hidden relative">
+      {/* Decorative background elements */}
+      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-rose-gold/20 to-transparent" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-rose-gold/10 rounded-full blur-[100px] pointer-events-none" />
+
+      <div className="w-full px-4 md:px-12 relative z-10">
         {/* Header Area */}
-        <div className="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-8 mb-12">
+        <div className="flex flex-col md:flex-row items-center justify-center space-y-6 md:space-y-0 md:space-x-8 mb-12">
           {/* Ribbon Banner */}
           <div className="relative">
-            <div className="bg-[#8B2E40] text-pure-white px-10 py-3 font-bold text-2xl tracking-tighter rounded-l-lg relative z-10">
+            <div className="bg-gradient-to-r from-luxury-gold to-rose-gold text-pure-white px-10 py-3 font-serif font-bold text-2xl tracking-widest rounded-l-lg relative z-10 shadow-pastel">
               NEW LAUNCH
               {/* Ribbon Tail */}
-              <div className="absolute top-0 -right-4 h-full w-8 bg-[#8B2E40] clip-path-ribbon"></div>
+              <div className="absolute top-0 -right-4 h-full w-8 bg-rose-gold clip-path-ribbon"></div>
             </div>
           </div>
 
           {/* Offer Text */}
-          <div className="text-royal-black text-xl">
-            Upto <span className="font-bold text-2xl">15%</span> Off
+          <div className="text-deep-black text-xl font-sans tracking-wide">
+            Upto <span className="font-bold text-2xl text-rose-gold drop-shadow-sm">15%</span> Off
           </div>
 
           {/* Explore Button */}
-          <Link to="/new-arrivals" className="flex items-center space-x-2 bg-[#C68B8B] text-pure-white px-6 py-2 rounded-full hover:bg-opacity-90 transition-all group">
-            <span className="font-bold text-sm tracking-widest">Explore</span>
-            <div className="bg-pure-white text-[#C68B8B] rounded-full p-1 group-hover:translate-x-1 transition-transform">
-              <ChevronRight size={14} />
+          <Link to="/new-arrivals" className="flex items-center space-x-2 bg-pure-white/80 backdrop-blur-md border border-rose-gold/50 text-rose-gold px-8 py-2.5 rounded-full hover:bg-rose-gold hover:text-pure-white transition-all duration-300 group shadow-soft hover:shadow-pastel">
+            <span className="font-bold text-sm tracking-widest uppercase">Explore</span>
+            <div className="bg-rose-gold text-pure-white rounded-full p-1 group-hover:bg-pure-white group-hover:text-rose-gold transition-colors">
+              <ChevronRight size={14} strokeWidth={2} />
             </div>
           </Link>
         </div>
 
         {/* Product Grid */}
-        <div className="flex space-x-6 overflow-x-auto no-scrollbar pb-4 md:justify-center">
+        <div className="flex space-x-6 overflow-x-auto no-scrollbar pb-8 md:justify-center">
           {newItems.map((item, index) => (
             <motion.div 
               key={item.name}
@@ -52,23 +56,24 @@ const NewLaunch = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              whileHover={{ y: -5 }}
+              whileHover={{ y: -10 }}
               className="flex-shrink-0 w-36 md:w-44 text-center space-y-4 cursor-pointer group"
             >
-              <div className="aspect-square rounded-[2.5rem] overflow-hidden relative shadow-lg">
+              <div className="aspect-square rounded-[2.5rem] overflow-hidden relative shadow-soft border border-rose-gold/20 group-hover:border-rose-gold/50 transition-colors duration-500 bg-pure-white">
+                <div className="absolute inset-0 bg-deep-black/5 group-hover:bg-transparent transition-colors duration-500 z-10" />
                 <img 
                   src={item.image} 
                   alt={item.name} 
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-90 group-hover:opacity-100 mix-blend-multiply"
                   referrerPolicy="no-referrer"
                 />
                 {/* New Badge */}
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 bg-[#E6B8B8]/90 backdrop-blur-sm px-4 py-1 rounded-b-xl flex items-center space-x-1">
-                  <Sparkles size={10} className="text-pure-white" />
-                  <span className="text-[10px] font-bold text-pure-white uppercase tracking-widest">New</span>
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 bg-pure-white/90 backdrop-blur-md border border-rose-gold/30 px-4 py-1.5 rounded-b-xl flex items-center space-x-1.5 shadow-pastel z-20">
+                  <Sparkles size={10} className="text-rose-gold" />
+                  <span className="text-[10px] font-bold text-rose-gold uppercase tracking-widest">New</span>
                 </div>
               </div>
-              <span className="text-sm font-bold tracking-tight text-royal-black block pt-2">{item.name}</span>
+              <span className="text-sm font-serif tracking-widest text-deep-black group-hover:text-rose-gold transition-colors duration-300 block pt-2">{item.name}</span>
             </motion.div>
           ))}
         </div>

@@ -32,12 +32,17 @@ const Collections = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="pt-32 pb-24"
+      className="pt-32 pb-24 bg-gradient-to-b from-cream-white to-soft-pink/20 min-h-screen relative"
     >
-      <div className="container-custom">
+      {/* Decorative background elements */}
+      <div className="absolute top-0 left-0 w-full h-[500px] bg-gradient-to-b from-rose-gold/10 to-transparent pointer-events-none" />
+      <div className="absolute top-1/3 left-0 w-[500px] h-[500px] bg-soft-pink/20 rounded-full blur-[150px] pointer-events-none" />
+      <div className="absolute bottom-1/3 right-0 w-[600px] h-[600px] bg-rose-gold/10 rounded-full blur-[120px] pointer-events-none" />
+
+      <div className="container-custom relative z-10">
         <div className="text-center mb-24 space-y-6">
-          <h1 className="text-5xl md:text-7xl font-serif font-light">The Collections</h1>
-          <p className="text-sm text-royal-black/60 tracking-[0.2em] font-light max-w-2xl mx-auto uppercase">
+          <h1 className="text-5xl md:text-7xl font-serif font-bold text-deep-black drop-shadow-sm tracking-wide">The Collections</h1>
+          <p className="text-sm text-deep-black/70 tracking-[0.2em] font-sans max-w-2xl mx-auto uppercase">
             Discover our curated worlds of gold and silver, each with its own unique story and aesthetic.
           </p>
         </div>
@@ -52,24 +57,24 @@ const Collections = () => {
               transition={{ duration: 0.8 }}
               className={`flex flex-col lg:flex-row items-center gap-16 ${index % 2 !== 0 ? 'lg:flex-row-reverse' : ''}`}
             >
-              <div className="lg:w-3/5 relative overflow-hidden aspect-[16/9] group">
+              <div className="lg:w-3/5 relative overflow-hidden aspect-[16/9] group rounded-3xl border border-rose-gold/20 shadow-soft">
                 <img 
                   src={collection.image} 
                   alt={collection.title}
-                  className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+                  className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 opacity-90"
                   referrerPolicy="no-referrer"
                 />
-                <div className="absolute inset-0 bg-royal-black/10 group-hover:bg-royal-black/20 transition-colors duration-500" />
+                <div className="absolute inset-0 bg-gradient-to-t from-deep-black/20 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-500" />
               </div>
-              <div className="lg:w-2/5 space-y-8 text-center lg:text-left">
+              <div className="lg:w-2/5 space-y-8 text-center lg:text-left bg-pure-white/80 backdrop-blur-md p-8 md:p-12 rounded-3xl border border-rose-gold/20 shadow-pastel">
                 <div className="space-y-4">
-                  <span className="text-xs uppercase tracking-[0.3em] font-bold text-rose-gold">Chapter {index + 1}</span>
-                  <h2 className="text-4xl md:text-5xl font-serif font-light">{collection.title}</h2>
+                  <span className="text-xs uppercase tracking-[0.3em] font-bold text-rose-gold drop-shadow-sm">Chapter {index + 1}</span>
+                  <h2 className="text-4xl md:text-5xl font-serif font-bold text-deep-black">{collection.title}</h2>
                 </div>
-                <p className="text-sm text-royal-black/60 font-light leading-relaxed tracking-wide">
+                <p className="text-sm text-deep-black/70 font-sans leading-relaxed tracking-wide">
                   {collection.description}
                 </p>
-                <Link to={collection.path} className="btn-premium px-12">
+                <Link to={collection.path} className="btn-premium px-12 inline-block">
                   Explore Collection
                 </Link>
               </div>

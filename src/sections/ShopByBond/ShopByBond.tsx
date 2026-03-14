@@ -12,11 +12,18 @@ const bonds = [
 
 const ShopByBond = () => {
   return (
-    <section className="py-16 bg-pure-white overflow-hidden">
-      <div className="w-full px-4 md:px-12">
-        <h2 className="text-3xl md:text-4xl font-serif text-center mb-10 text-royal-black">Shop by Bond</h2>
+    <section className="py-20 bg-gradient-to-b from-soft-pink/20 to-cream-white overflow-hidden relative">
+      {/* Decorative background elements */}
+      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-rose-gold/20 to-transparent" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-rose-gold/10 rounded-full blur-[100px] pointer-events-none" />
+
+      <div className="w-full px-4 md:px-12 relative z-10">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-serif text-deep-black mb-4 drop-shadow-sm">Shop by Bond</h2>
+          <p className="text-deep-black/70 font-sans tracking-wide max-w-2xl mx-auto">Celebrate the connections that matter most with our curated collections.</p>
+        </div>
         
-        <div className="flex space-x-4 md:space-x-6 overflow-x-auto no-scrollbar pb-4 md:justify-center">
+        <div className="flex space-x-4 md:space-x-6 overflow-x-auto no-scrollbar pb-8 md:justify-center">
           {bonds.map((bond, index) => (
             <motion.div 
               key={bond.name}
@@ -24,19 +31,20 @@ const ShopByBond = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              whileHover={{ y: -5 }}
-              className="flex-shrink-0 w-40 md:w-56 bg-[#EBEBEB] rounded-2xl p-2 cursor-pointer group shadow-sm hover:shadow-md transition-all border border-black/5"
+              whileHover={{ y: -10 }}
+              className="flex-shrink-0 w-40 md:w-56 bg-pure-white/80 backdrop-blur-md rounded-2xl p-3 cursor-pointer group shadow-soft hover:shadow-pastel transition-all duration-500 border border-rose-gold/20 hover:border-rose-gold/50"
             >
-              <div className="aspect-square rounded-xl overflow-hidden bg-[#DCD3CB]">
+              <div className="aspect-square rounded-xl overflow-hidden bg-cream-white relative">
+                <div className="absolute inset-0 bg-deep-black/5 group-hover:bg-transparent transition-colors duration-500 z-10" />
                 <img 
                   src={bond.image} 
                   alt={bond.name} 
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-90 group-hover:opacity-100"
                   referrerPolicy="no-referrer"
                 />
               </div>
-              <div className="text-center py-3">
-                <span className="text-lg md:text-xl font-sans text-royal-black">{bond.name}</span>
+              <div className="text-center py-4">
+                <span className="text-lg md:text-xl font-serif text-deep-black group-hover:text-rose-gold transition-colors duration-300 tracking-wide">{bond.name}</span>
               </div>
             </motion.div>
           ))}
